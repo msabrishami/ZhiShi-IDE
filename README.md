@@ -1,6 +1,9 @@
 # ZhiShi-IDE
-Interactive Design Environment for ZhiShi ATPG Report Format 
+**Interactive Design Environment for ZhiShi ATPG Report Format**
 
+Authors: M. Saeed Abrishami (abri442@usc.edu) and Nikhil Vas (nvas@usc.edu). 
+
+USC EE658 course webpage: https://sportlab.usc.edu/~msabrishami/ee658.html
 
 This Python-based tool is designed to facilitate the creation of .zs (ZhiShi) reports. Simply, the user can report the ATPG solution line by line. After each line is entered by the user, the program analyzes the keywords and based on its basic understanding of the ATPG algorithm, it suggests  the next possible lines. 
 
@@ -20,8 +23,9 @@ The program Initially prompts the user to specify a circuit node and its associa
     <em>Opening window of the ZhiShi IDE</em>
 </div>
 
-After the user introduces the target fault, the tool provides two pieces of information: 
+<br>
 
+After the user introduces the target fault, the tool provides two pieces of information: 
 - Current instructions: The history of the user's instructions. 
 - Possible next instructions: Suggestions for subsequent steps that align with the procedures of the underlying ATPG algorithm. 
 
@@ -30,7 +34,7 @@ After the user introduces the target fault, the tool provides two pieces of info
     <br>
     <em>After introducing the target fault</em>
 </div>
-
+<br>
 
 Upon completing the instructions, the tool inquires whether the user wishes to save the session's output. Affirmative responses ('yes' or 'y') trigger a prompt for a filename, under which the .zs file will be stored.
 
@@ -39,7 +43,7 @@ Upon completing the instructions, the tool inquires whether the user wishes to s
     <br>
     <em>IDE prompts users for storing the report after it has reached a SUCCESS or FAILURE.</em>
 </div>
-
+<br>
 
 In conclusion, the tool's guiding mechanism is aimed at simplifying the documentation process, ensuring users can accurately and methodically log each step of the algorithm. 
 
