@@ -81,39 +81,39 @@ def possible_next(last_command):
 
     nxt = [f"{base}\t"]
     if op == "InC" and items[2] == "True":
-        nxt[0] += f"REPORT\t<cktName>-<node>-<0/1>-sol-<idx>"
+        nxt[0] += f"RPT\t<cktName>-<node>-<0/1>-sol-<idx>"
     elif op == "InC" and items[2] == "False":
         nxt[0] += f"RET\t#PARRENT\tFalse"
-    elif op == "REPORT":
+    elif op == "RPT":
         nxt[0] += f"F@PO\t<True/False>"
     elif op == "F@PO" and items[2] == "False":
         nxt[0] += f"DF@0\t<True/False>"
     elif op == "F@PO" and items[2] == "True":
         nxt[0] += f"JF@0\t<True/False>"
     elif op == "DF@0" and items[2] == "False":
-        nxt[0] += f"OPT\tDF.SELECT\t<gate>"
+        nxt[0] += f"OPTN\tDF.SEL\t<gate>"
     elif op == "DF@0" and items[2] == "True":
         nxt[0] += f"RET\t#PARENT\tFalse"
-    elif op == "OPT" and items[2] == "DF.SELECT":
-        nxt[0] += f"OPT\tDF.GATE.VAL\t<line:val line:val ...>"
-    elif op == "OPT" and items[2] == "DF.GATE.VAL":
+    elif op == "OPTN" and items[2] == "DF.SEL":
+        nxt[0] += f"OPTN\tDF.GVAL\t<line:val line:val ...>"
+    elif op == "OPTN" and items[2] == "DF.GVAL":
         nxt[0] += "CAL\t#NEW-ID"
     elif op == "CAL":
         nxt[0] += f"{items[2]}InC\t<True/False>"
     elif op == "JF@0" and items[2] == "True":
         nxt[0] += "RET\t#PARRENT\tTrue"
     elif op == "JF@0" and items[2] == "False":
-        nxt[0] += "OPT\tJF.SELECT\t<gate>"
-    elif op == "OPT" and items[2] == "JF.SELECT":
-        nxt[0] += "OPT\tJF.GATE.VAL\t<line:val line:val ...>"
-    elif op == "OPT" and items[2] == "JF.GATE.VAL":
+        nxt[0] += "OPTN\tJF.SEL\t<gate>"
+    elif op == "OPTN" and items[2] == "JF.SEL":
+        nxt[0] += "OPTN\tJF.GVAL\t<line:val line:val ...>"
+    elif op == "OPTN" and items[2] == "JF.GVAL":
         nxt[0] += "CAL\t#NEW-ID"
-        nxt.append(f"{base}\tJF.SELECT\t<gate>")
+        nxt.append(f"{base}\tJF.SEL\t<gate>")
     elif op == "RET" and items[3] == "True":
         nxt[0] = f"{items[2]}\tRET\t#PARRENT\tTrue"
     elif op == "RET" and items[3] == "False":
-        nxt[0] = f"#PARRENT\tOPT\tDF.SELECT\t<line:val line:val ...>"
-        nxt.append(f"#PARRENT\tOPT\tJF.SELECT\t<line:val line:val ...>")
+        nxt[0] = f"#PARRENT\tOPTN\tDF.SEL\t<line:val line:val ...>"
+        nxt.append(f"#PARRENT\tOPTN\tJF.SEL\t<line:val line:val ...>")
     else:
         nxt[0] = "... Umm! Not sure! ... "
     
