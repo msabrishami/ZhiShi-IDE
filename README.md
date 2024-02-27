@@ -14,20 +14,31 @@ $ python3 ZhiShi-IDE-v02.py
 
 The program Initially prompts the user to specify a circuit node and its associated fault condition (either stuck-at-0 or stuck-at-1) using a straightforward input format such as node@1 or node@0. 
 
-IMAGE 1
-
-
-IMAGE 2
-
+<div align="center">
+    <img src="imgs/zhishi-intro1.png" alt="Opening window of the ZhiShi IDE" width="500"/>
+    <br>
+    <em>Opening window of the ZhiShi IDE</em>
+</div>
 
 After the user introduces the target fault, the tool provides two pieces of information: 
 
 - Current instructions: The history of the user's instructions. 
 - Possible next instructions: Suggestions for subsequent steps that align with the procedures of the underlying ATPG algorithm. 
 
+<div align="center">
+    <img src="imgs/zhishi-intro2.png" alt="After introducing the target fault" width="500"/>
+    <br>
+    <em>After introducing the target fault</em>
+</div>
+
+
 Upon completing the instructions, the tool inquires whether the user wishes to save the session's output. Affirmative responses ('yes' or 'y') trigger a prompt for a filename, under which the .zs file will be stored.
 
-IMAGE 3
+<div align="center">
+    <img src="imgs/zhishi-intro3.png" alt="IDE prompts users for storing the report after it has reached a SUCCESS or FAILURE." width="500"/>
+    <br>
+    <em>IDE prompts users for storing the report after it has reached a SUCCESS or FAILURE.</em>
+</div>
 
 
 In conclusion, the tool's guiding mechanism is aimed at simplifying the documentation process, ensuring users can accurately and methodically log each step of the algorithm. 
